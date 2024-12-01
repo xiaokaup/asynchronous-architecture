@@ -1,5 +1,4 @@
 const { Task } = require("../db/models");
-const { publishTask } = require("../queue/queue");
 
 const resolvers = {
   Query: {
@@ -9,9 +8,9 @@ const resolvers = {
   },
   Mutation: {
     createTask: async (_, { input }) => {
-      const task = await Task.create({ ...input, status: "PENDING" });
-      await publishTask(task.id);
-      return task;
+      // We don't need to call publishTask here anymore
+      // The database trigger and listener will handle it
+      return await Task.create({ ...input, status: "PENDING" });
     },
   },
 };

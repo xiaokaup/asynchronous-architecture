@@ -3,11 +3,15 @@ const { ApolloServer } = require("apollo-server-express");
 const { typeDefs } = require("./schema");
 const { resolvers } = require("./resolvers");
 const { connectDB } = require("../db/database");
+const { startListener } = require("../db/listener");
+const { connectQueue } = require("../queue/queue");
 
 async function startServer() {
   const app = express();
 
   await connectDB();
+  await connectQueue();
+  startListener(); // Start the database listener
 
   const server = new ApolloServer({
     typeDefs,
