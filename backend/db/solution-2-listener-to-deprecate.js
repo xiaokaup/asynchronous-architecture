@@ -1,5 +1,5 @@
 const { Pool } = require("pg");
-const { publishTask } = require("../queue/queue");
+const { publishTask } = require("../solution-2-queue-to-deprecate/queue");
 
 const pool = new Pool({
   connectionString: "postgres://user:pass@localhost:5432/dbname",

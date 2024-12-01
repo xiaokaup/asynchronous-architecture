@@ -3,8 +3,8 @@ const { ApolloServer } = require("apollo-server-express");
 const { typeDefs } = require("./schema");
 const { resolvers } = require("./resolvers");
 const { connectDB } = require("../db/database");
-const { startListener } = require("../db/listener");
-const { connectQueue } = require("../queue/queue");
+const { startListener } = require("../db/solution-2-listener-to-deprecate");
+const { connectQueue } = require("../solution-2-queue-to-deprecate/queue");
 
 async function startServer() {
   const app = express();
