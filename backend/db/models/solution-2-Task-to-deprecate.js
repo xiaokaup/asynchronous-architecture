@@ -7,13 +7,8 @@ const Task = sequelize.define("Task", {
     allowNull: false,
   },
   status: {
-    type: DataTypes.ENUM("PENDING", "PROCESSING", "COMPLETED", "FAILED"),
+    type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: "PENDING",
-  },
-  processingStartedAt: {
-    type: DataTypes.DATE,
-    allowNull: true,
   },
 });
 
